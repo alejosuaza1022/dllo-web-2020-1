@@ -1,0 +1,45 @@
+body {
+    background-color: darkgrey;
+}
+h2 {
+    color: brown;
+}
+
+p {
+    font-size: small;
+    font-family: 'Zhi Mang Xing', cursive;
+}
+
+ul {
+    text-align: center;
+}
+
+ul li {
+    /* float: right; */
+    display: inline-block;
+}
+ul li a {
+     color: crimson;
+    text-decoration: none;
+ }
+  .prueba {
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
+  }
+.pruebaMaring {
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
+background-color: white;
+    margin: 50px;
+    padding: 20px;
+}
+a:hover
+{
+    padding: 20px;
+    background-color: darksalmon;
+    font-family: 'Zhi Mang Xing', cursive;
+   border-radius:0px 0px 0px 20px;
+    color: darkblue;
+}
