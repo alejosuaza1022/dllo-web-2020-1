@@ -52,11 +52,32 @@
                         </select>
                     </div>
                     <input 
+                    id="btnCrearEstudiante"
                     class="btn btn-primary" type="submit"
                      value="Crear estudiante">
+
+                     <button type="button"
+                     onclick="actualizarEstudiante()"
+                      id="btnEditarEstudiante" 
+                      class="btn btn-primary">Actualizar estudiante </button>
                 </form>
             </div>
         </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Identificación</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Carrera</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody id="listaEstudiantes">
+           
+            </tbody>
+          </table>
 
     </div>
     <script src="../js/estudiantes.js"></script>
