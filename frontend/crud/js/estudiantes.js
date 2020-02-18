@@ -51,9 +51,6 @@ function crearEstudiante() {
     // if (existe) {
 
     // }
-
-
-
     estudiantes.push(estudiante)
     listarEstudiantes()
 }
@@ -94,11 +91,11 @@ function limpiarFormulario() {
 function actualizarEstudiante() {
     let estudianteActualizado = obtenerValores()
     estudiantes.splice(estudianteTemporal, 1, estudianteActualizado)
-    limpiarFormulario()
-    listarEstudiantes()
+   
+    listarEstudiantes(limpiarFormulario)
 }
 
-function listarEstudiantes() {
+function listarEstudiantes(callback) {
     let lista = document.getElementById("listaEstudiantes")
     let data = ""
     for (let i = 0; i < estudiantes.length; i++) {
@@ -113,6 +110,7 @@ function listarEstudiantes() {
         data += "</tr>"
     }
     lista.innerHTML = data
+    callback()
 }
 
 // Llamado a la función
