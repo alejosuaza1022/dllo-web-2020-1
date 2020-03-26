@@ -17,27 +17,36 @@ let materias = [
  * En el callback de la consulta del usuario llamar la consulta de la materia a la que pertenece .
  */
 
-let getUsuario = (id, callback) => {
-  let usuario = {};
-  callback(null, usuario);
-  callback("El usuario no existe", null);
+// Implementaciones
+let getEstudiante1 = (id, callback) => {
+  let usuario = estudiantes.find(est => est.id === id);
+  if (usuario) {
+    callback(null, usuario);
+  } else {
+    callback("El estudiante no existe", null);
+  }
 };
 
-let getMateria = (id, callback) => {
-  let materia = {};
-  callback(null, materia);
-  callback("El estudiante no tiene materias", null);
+let getMateria1 = (estudiante, callback) => {
+  let materia = materias.find(materia => estudiante.materia == materia.id);
+  if (materia) {
+    callback(null, materia);
+  } else {
+    callback("La materia no existe en el estudiante", null);
+  }
 };
 
-// Imprimir el estudiante y el nombre de la materia
-getUsuario(123, (error, respuesta) => {
+//Ejecución
+getEstudiante1(1, (error, estudiante) => {
   if (error) {
-    console.log(error);
+    console.log("Error", error);
     return;
   }
-  console.log("Consulta del usuario");
-  console.log(respuesta);
-  let id_materia = respuesta.materia;
-
-  //.......
+  getMateria1(estudiante, (error, materia) => {
+    if (error) {
+      console.log("Error", error);
+      return;
+    }
+    console.log("El estudiante ", estudiante, "materia ", materia);
+  });
 });

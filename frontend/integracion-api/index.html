@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementación de un API</title>
+  </head>
+  <body>
+    <h1>Solución de como se invoca un API.</h1>
+    <p>Implementación de API http://api.citybik.es/v2/</p>
+
+    <p>Endpoint: http://api.citybik.es/v2/networks</p>
+
+    <h1 id="name"></h1>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    console.log("Consumir un API");
+
+    axios
+      .get("http://api.citybik.es/v2/networks/bikesampa")
+      .then(response => {
+        console.log("Respuesta del API");
+        console.log(response);
+        let data = response.data;
+        let name = data.network.name;
+        document.getElementById("name").innerText = name;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  </script>
+</html>
