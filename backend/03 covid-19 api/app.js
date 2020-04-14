@@ -1,10 +1,11 @@
 // Importar express
 const express = require("express");
+const cors = require("cors");
 
 // Inicializar la librería
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 // Endpoint
 /**
  * URI's  disponibles en el API
@@ -20,7 +21,7 @@ const rutas_viviendas = require("./routes/viviendas");
 app.use(rutas_viviendas);
 
 // Puerto
-const port = 3000;
+const port = 3001;
 // Levantar el servidor para escuchar los puertos
 app.listen(port, () => {
   console.log(`Escuchando API en http://localhost:${port}`);
