@@ -14,20 +14,5 @@
     <h1 id="name"></h1>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>
-    console.log("Consumir un API");
-
-    axios
-      .get("http://api.citybik.es/v2/networks/bikesampa")
-      .then(response => {
-        console.log("Respuesta del API");
-        console.log(response);
-        let data = response.data;
-        let name = data.network.name;
-        document.getElementById("name").innerText = name;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  </script>
+  <script src="index.js"></script>
 </html>
