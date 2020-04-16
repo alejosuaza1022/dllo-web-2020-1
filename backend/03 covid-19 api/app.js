@@ -10,15 +10,30 @@ app.use(cors());
 /**
  * URI's  disponibles en el API
  */
+
 app.get("/", (req, res) => {
   res.send("Bienvenido a la API para familias del covid-19");
 });
+
+// VERSION del api
+const vs = "/api/v1/";
+
 // IMPORTAR las rutas con los endpoints especificos
+const rutas_autenticacion = require("./routes/autenticacion");
+app.use(vs, rutas_autenticacion);
+
 const rutas_personas = require("./routes/personas");
-app.use(rutas_personas);
+app.use(vs, rutas_personas);
 
 const rutas_viviendas = require("./routes/viviendas");
-app.use(rutas_viviendas);
+app.use(vs, rutas_viviendas);
+
+app.use("/", (req, res) => {
+  res.status(404).send({
+    ok: false,
+    mensaje: "El recurso que busca no existe.",
+  });
+});
 
 // Puerto
 const port = 3001;
